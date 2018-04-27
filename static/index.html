@@ -4,7 +4,7 @@
 		<title>Geolocation</title>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 		<meta charset="utf-8">
-		<script src="/socket.io/socket.io.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoosTcynqTn_8iCwG5Ycvy5j-m_KfFfgM&callback=initMap" async defer></script>
 		<style>
@@ -83,7 +83,7 @@
                 marker.setMap(null); // set markers setMap to null to remove it from map
                 delete markers[markerId]; // delete marker instance from markers object
             };
-            var socket = io();
+            var socket = io.connect('https://dashboard.heroku.com/apps/location0991');
             $(document).ready(function(){
                 check_pos = setInterval(function(){ //create a loop and wait for the response
                     if(typeof pos != 'undefined'){ //while the position is not defined the loop is checking every half seconds
